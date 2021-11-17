@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "sandi",
+    "database": "belajar_postgres_2",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "sandi",
+    "database": "belajar_postgres",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "sandi",
+    "database": "belajar_postgres",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
