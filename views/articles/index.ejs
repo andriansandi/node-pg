@@ -1,0 +1,34 @@
+<%- include('../partials/header'); -%>
+    <div class="col">
+        <a href="/articles/add" class="btn btn-dark">Tambah Artikel</a>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Body</th>
+                <th scope="col">Approved</th>
+                <th scope="col">Author</th>
+                <th scope="col">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% articleList.forEach(function(article) { %>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td><%= article.title %></td>
+                        <td><%= article.body %></td>
+                        <td><%= article.approved %></td>
+                        <td><%= article.author %></td>
+                        <td>
+                            <a class="btn btn-primary" href="/articles/edit/<%= article.id %>">Ubah</a>
+                            <a class="btn btn-danger" href="/articles/delete/<%= article.id %>">Hapus</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+<%- include('../partials/footer'); -%>
+
+    
