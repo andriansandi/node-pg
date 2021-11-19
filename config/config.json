@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "postgres",
+    "username": "sandimaleo",
     "password": "sandi",
-    "database": "belajar_postgres_2",
+    "database": "belajar_postgres",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

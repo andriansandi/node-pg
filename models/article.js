@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   Article.init({
     title: DataTypes.STRING,
     body: DataTypes.TEXT,
-    approved: DataTypes.BOOLEAN
+    approved: DataTypes.BOOLEAN,
+    author: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Article',
