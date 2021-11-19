@@ -4,6 +4,17 @@ var router = express.Router()
 // include model
 const { Article } = require('../models')
 
+router.get('/api/', async (req, res, next) => {
+    // Get all data artikel dari tabel Artikel
+    try {
+        var articles = await Article.findAll();
+        console.log('articles: ' + articles);
+        res.json(articles);
+    } catch(error) {
+        console.log(error)
+    }
+});
+
 // Get data article =>> READ
 // Route: /articles/
 router.get('/', async (req, res, next) => {
