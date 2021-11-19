@@ -80,5 +80,21 @@ router.post('/create', async(req, res, next) => {
         res.status(500).send('Internal Server Error')
     }
 })
+
+// DELETE data di table dengan ID = :id
+router.get('/delete/:id', async(req, res) => {
+    try {
+        // DELETE FROM articles WHERE id = ':id'
+        await Article.destroy({
+            where: {
+              id: req.params.id
+            }
+        });
+        res.redirect('/articles')
+    } catch(error) {
+        console.error(error)
+        res.status(500).send('Internal Server Error')
+    }
+})
   
 module.exports = router;
