@@ -5,9 +5,11 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">
+                        <input type="checkbox" value="all">
+                    </th>
                     <th scope="col">Title</th>
-                    <th scope="col">Body</th>
+                    <th scope="col" width="50%">Body</th>
                     <th scope="col">Approved</th>
                     <th scope="col">Author</th>
                     <th scope="col" width="10%">Aksi</th>
@@ -16,7 +18,9 @@
                 <tbody>
                     <% articleList.forEach(function(article) { %>
                         <tr>
-                            <th scope="row">1</th>
+                            <th scope="row">
+                                <input type="checkbox" value="<%= article.id %>">
+                            </th>
                             <td><%= article.title %></td>
                             <td><%= article.body %></td>
                             <td><%= article.approved %></td>

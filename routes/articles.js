@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 
 // include model
-const { Article } = require('../models')
+const { Article, Author } = require('../models')
 
 router.get('/api/', async (req, res, next) => {
     // Get all data artikel dari tabel Artikel
@@ -35,8 +35,13 @@ router.get('/', async (req, res, next) => {
 router.get('/edit/:id', async(req, res, next) => {
     try {
         const article = await Article.findByPk(req.params.id)
+
+        // get all authors
+        const authors = await Author.findAll()
+        
         res.render('articles/form', {
-            article: article
+            article: article,
+            authors: authors
         })
     } catch (error) {
         console.error(error)
@@ -53,7 +58,7 @@ router.post('/update', async(req, res, next) => {
             title: req.body.title,
             body: req.body.body,
             approved: req.body.approved,
-            author: req.body.author
+            authorId: req.body.authorId
         },{
             where: {
               id: req.body.id
@@ -69,7 +74,11 @@ router.post('/update', async(req, res, next) => {
 // Menampilkan form tambah data article 
 router.get('/add', async(req, res, next) => {
     try {
-        res.render('articles/form')
+        // get all authors
+        const authors = await Author.findAll()
+        res.render('articles/form', {
+            authors: authors
+        })
     } catch(error) {
         console.error(error)
         res.status(500).send('Internal Server Error')
@@ -83,7 +92,7 @@ router.post('/create', async(req, res, next) => {
             title: req.body.title,
             body: req.body.body,
             approved: req.body.approved,
-            author: req.body.author
+            authorId: req.body.authorId
         })
         res.redirect('/articles')
     } catch(error) {
