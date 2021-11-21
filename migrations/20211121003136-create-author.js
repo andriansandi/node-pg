@@ -11,7 +11,7 @@ module.exports = {
       firstName: {
         type: Sequelize.STRING
       },
-      lastNaame: {
+      lastName: {
         type: Sequelize.STRING
       },
       createdAt: {

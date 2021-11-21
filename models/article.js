@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Article extends Model {
     /**
@@ -10,14 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Article.belongsTo(models.Author, { foreignKey: 'authorId'} )
     }
   };
   Article.init({
     title: DataTypes.STRING,
     body: DataTypes.TEXT,
     approved: DataTypes.BOOLEAN,
-    author: DataTypes.STRING
+    authorId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Article',
