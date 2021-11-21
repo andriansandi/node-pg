@@ -4,11 +4,11 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.addColumn('Articles', 'author', {
       allowNull: false,
-      type: Sequelize.STRING,
+      type: Sequelize.INTEGER,
     })
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropColumn('Articles', 'author')
+    await queryInterface.removeColumn('Articles', 'author')
   }
 };
