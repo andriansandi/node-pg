@@ -25,3 +25,6 @@
   ```shell
   npm run start
   ```
+
+### Routing
+- [Articles](http://localhost:3000/articles)
