@@ -1,19 +1,10 @@
 var express = require('express')
 var router = express.Router()
 
-// include model
-const { Article, Author } = require('../models')
+// Controllers
 
-router.get('/api/', async (req, res, next) => {
-    // Get all data artikel dari tabel Artikel
-    try {
-        var articles = await Article.findAll();
-        console.log('articles: ' + articles);
-        res.json(articles);
-    } catch(error) {
-        console.log(error)
-    }
-});
+// Model
+const { Article, Author } = require('../models')
 
 // Get data article =>> READ
 // Route: /articles/
