@@ -1,0 +1,52 @@
+<%- include('../partials/header'); -%>
+    <div class="container-fluid mt-5">
+        <div class="col">
+            <h3> Author Name: <%= author.firstName %> <%= author.lastName %></h3>
+            <table class="table" width="40%">
+                <tbody>
+                    <tr>
+                        <td width="30%">Home Address</td>
+                        <td width="30%"><%= author.Author_Biodatum.homeAddress %></td>
+                    </tr>
+                    <tr>
+                        <td width="30%">Work Address</td>
+                        <td width="30%"><%= author.Author_Biodatum.workAddress %></td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <h5>Daftar Artikel</h5>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">
+                        <input type="checkbox" value="all">
+                    </th>
+                    <th scope="col">Title</th>
+                    <th scope="col" width="50%">Body</th>
+                    <th scope="col">Approved</th>
+                    <th scope="col" width="10%">Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <% author.Articles.forEach(function(article) { %>
+                        <tr>
+                            <th scope="row">
+                                <input type="checkbox" value="<%= article.id %>">
+                            </th>
+                            <td><%= article.title %></td>
+                            <td><%= article.body %></td>
+                            <td><%= article.approved %></td>
+                            <td>
+                                <a class="btn btn-primary" href="/articles/edit/<%= article.id %>">Ubah</a>
+                                <a class="btn btn-danger" href="/articles/delete/<%= article.id %>">Hapus</a>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+<%- include('../partials/footer'); -%>
+
+    
